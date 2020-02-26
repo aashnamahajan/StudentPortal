@@ -18,37 +18,37 @@ public class loginInfo extends javax.swing.JFrame {
     /**
      * Creates new form loginInfo
      */
-    private String name;
-    private String email;
-    private String password;
+//    private String name;
+//    private String email;
+//    private String password;
     
     private ArrayList<Object> studentQueue =new ArrayList<Object>();
     
     public Portal portalInst=null;
 
     
-    public void setName() {
-        this.name = nameTxt.getText(); 
-    }
-    @Override
-    public String getName() {
-        return name;
-    }
-    
-    public void setemail() {
-        email = emailTxt.getText(); 
-    }
-    
-    public String getemail() {
-        return email;
-    }
-    
-    public void setPassword() {
-        this.password = sessionPassTxt.getText(); 
-    }
-    public String getPassword() {
-        return password;
-    }
+//    public void setName() {
+//        this.name = nameTxt.getText(); 
+//    }
+//    @Override
+//    public String getName() {
+//        return name;
+//    }
+//    
+//    public void setemail() {
+//        email = emailTxt.getText(); 
+//    }
+//    
+//    public String getemail() {
+//        return email;
+//    }
+//    
+//    public void setPassword() {
+//        this.password = sessionPassTxt.getText(); 
+//    }
+//    public String getPassword() {
+//        return password;
+//    }
     
     public loginInfo() {
         initComponents();
@@ -160,12 +160,19 @@ public class loginInfo extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        setName();
-        setemail();
-        setPassword();
         
-        if (getName()!=null && getemail()!=null && getPassword()!=null){
-            String[] rowData={getName(), getemail(), "Unpaused"}; 
+        //setName();
+        //setemail();
+        //setPassword();
+        UserDetails userDetails=new UserDetails();
+        userDetails.setName(nameTxt.getText() );
+        userDetails.setemail(emailTxt.getText());
+        userDetails.setPassword(sessionPassTxt.getText());
+        userDetails.setStatus("Unpaused");
+        
+        
+        if (userDetails.getName()!=null && userDetails.getemail()!=null && userDetails.getPassword()!=null){
+            String[] rowData={userDetails.getName(), userDetails.getemail(), userDetails.getStatus()}; 
             
             studentQueue.add(rowData);
             DefaultTableModel model = (DefaultTableModel) portalInst.jTable1.getModel();

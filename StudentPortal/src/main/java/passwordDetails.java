@@ -47,11 +47,11 @@ public class passwordDetails extends javax.swing.JFrame {
         passwordLabel.setText("Session Password");
 
         submitBtn.setText("Submit");
-        submitBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitBtnActionPerformed(evt);
-            }
-        });
+//        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                submitBtnActionPerformed(evt);
+//            }
+//        });
 
         passwordTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,48 +89,29 @@ public class passwordDetails extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+    public void submitBtnActionPerformed(java.awt.event.ActionEvent evt, int index, DefaultTableModel model, String action) {//GEN-FIRST:event_submitBtnActionPerformed
+
+            if(!this.passwordTxt.getText().isEmpty()){
+
+                switch(action){
+                    case "Unpaused":
+                        model.setValueAt("Unpaused", index, 2);
+                        break;
+                    case "Paused":
+                        model.setValueAt("Paused", index, 2);
+                        break;
+                    case "Remove":
+                        model.removeRow(index);
+                        break;
+                }
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Password an't be empty", "Warning",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         // TODO add your handling code here:
         
-        //password=passwordTxt.getText();
-//        if (password!=null){
-//            this.setVisible(false);
-//        }
-        if (password!=null){
-            
-//            if(action_evt=="pause"){_
-//                    String statusValue=portalInst.jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
-//                    if (statusValue!=null){
-//                        if (statusValue=="Unpaused"){
-//                            portalInst.jTable1.setValueAt("Paused", portalInst.jTable1.getSelectedRow(),2);
-//                        }
-//                    }
-//                    else{
-//                        JOptionPane.showMessageDialog(this, "Select an entry to be removed");
-//                    }
-//               
-//            }
-//            else if(action_evt=="remove"){_
-//                model = (DefaultTableModel) portalInst.jTable1.getModel();
-//                model.removeRow(portalInst.jTable1.getSelectedRow());
-//                
-//               
-//            }
-//            else if(action_evt=="unpause"){_
-//                    String statusValue=portalInst.jTable1.getValueAt(portalInst.jTable1.getSelectedRow(),2).toString();
-//                    if (statusValue!=null){
-//                        if (statusValue=="Paused"){
-//                            portalInst.jTable1.setValueAt("Unpaused", portalInst.jTable1.getSelectedRow(),2);
-//                        }
-//                    }
-//                    else{
-//                        JOptionPane.showMessageDialog(this, "Select an entry to be removed");
-//                    }
-//            }
-//            
-  
-            this.setVisible(false);
-        }
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void passwordTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTxtActionPerformed
@@ -182,6 +163,6 @@ public class passwordDetails extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTxt;
-    private javax.swing.JButton submitBtn;
+    protected javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
 }

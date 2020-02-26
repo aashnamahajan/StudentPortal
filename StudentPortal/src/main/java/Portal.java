@@ -1,6 +1,7 @@
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,7 +10,6 @@ import javax.swing.table.DefaultTableModel;
  */
 
 /**
- *
  * @author Aashna Mahajan
  */
 public class Portal extends javax.swing.JFrame {
@@ -18,6 +18,7 @@ public class Portal extends javax.swing.JFrame {
      * Creates new form Portal
      */
     DefaultTableModel model = null;
+
     public Portal() {
         initComponents();
         
@@ -45,33 +46,40 @@ public class Portal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[0][0],
+                new String[]{
+                        "Name", "Email Id", "Status"
+                }
+        ));
+        Object[][] obj = new Object[][]{
                 {"John", "John@gmail.com", "Unpaused"},
                 {"Chris", "Chris@gmail.com", "Unpaused"},
-                {"Jennifer", "Jennifer@gmail.com", "Unpaused"}
-            },
-            new String [] {
-                "Name", "Email Id", "Status"
-            }
-        ));
+                {"Jennifer", "Jennifer@gmail.com", "Unpaused"},
+                {"Jane", "Jane@gmail.com", "Unpaused"}
+        };
+        int random = new Random().nextInt(4);
+        for(int i=0;i<random;i++){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(obj[i]);
+        }
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         addBtn.setText("Add");
@@ -105,28 +113,28 @@ public class Portal extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(removeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(unpauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(removeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(unpauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addBtn)
-                    .addComponent(removeBtn)
-                    .addComponent(pauseBtn)
-                    .addComponent(unpauseBtn))
-                .addContainerGap())
+                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addContainerGap(25, Short.MAX_VALUE)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(addBtn)
+                                        .addComponent(removeBtn)
+                                        .addComponent(pauseBtn)
+                                        .addComponent(unpauseBtn))
+                                .addContainerGap())
         );
 
         jLabel1.setText("Student Portal");
@@ -134,30 +142,30 @@ public class Portal extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(169, 169, 169)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,63 +173,76 @@ public class Portal extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        loginInfo logininfo=new loginInfo(this);
+        loginInfo logininfo = new loginInfo(this);
         logininfo.setVisible(true);
 //        if (logininfo.getName()!=null && logininfo.getemail()!=null){
 //            String[] rowData={logininfo.getName(), logininfo.getemail(), "Unpause"}; 
 //            model = (DefaultTableModel) jTable1.getModel();
 //            model.addRow(rowData);
 //        }
-        
-        
+
+
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void pauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtnActionPerformed
         // TODO add your handling code here:
-        
-        passwordDetails passworddetails=new passwordDetails(this,"pause");
-        
-        //passwordDetails passworddetails=new passwordDetails(this);
-        passworddetails.setVisible(true);
-//        String statusValue=jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
-//        if (statusValue!=null){
-//            if (statusValue=="Unpaused"){
-//                jTable1.setValueAt("Paused", jTable1.getSelectedRow(),2);
-//            }
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(this, "Select an entry to be removed");
-//        }
+        passwordDetails passworddetails = new passwordDetails(this, "Paused");
+        int index = jTable1.getSelectedRow();
+        if (index > 0) {
+            passworddetails.submitBtn.setEnabled(true);
+            if(jTable1.getModel().getValueAt(index, 2)=="Paused"){
+                JOptionPane.showMessageDialog(jTable1, "The entry is already paused", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+            passworddetails.setVisible(true);
+            passworddetails.submitBtn.addActionListener(e -> {
+                passworddetails.submitBtnActionPerformed(e, index, (DefaultTableModel) jTable1.getModel(), "Paused");
+            });
+            }
+        } else {
+            JOptionPane.showMessageDialog(jTable1, "Select a row", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            
+        }
+
     }//GEN-LAST:event_pauseBtnActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
-        // TODO add your handling code here:
-        
-        passwordDetails passworddetails=new passwordDetails(this,"remove");
-        
-        //passwordDetails passworddetails=new passwordDetails(this);
-        passworddetails.setVisible(true);
-        //model = (DefaultTableModel) jTable1.getModel();
-        //model.removeRow(jTable1.getSelectedRow());
-
+        passwordDetails passworddetails = new passwordDetails(this, "remove");
+        int index = jTable1.getSelectedRow();
+        if (index > 0) {
+            passworddetails.setVisible(true);
+            passworddetails.submitBtn.addActionListener(e -> {
+                passworddetails.submitBtnActionPerformed(e, index, (DefaultTableModel) jTable1.getModel(), "Remove");
+            });
+        } else {
+            JOptionPane.showMessageDialog(jTable1, "Select a row", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_removeBtnActionPerformed
 
     private void unpauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unpauseBtnActionPerformed
         // TODO add your handling code here:
-        
-        passwordDetails passworddetails=new passwordDetails(this,"unpause");
-        
-        //passwordDetails passworddetails=new passwordDetails();
-        passworddetails.setVisible(true);
-//        String statusValue=jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
-//        if (statusValue!=null){
-//            if (statusValue=="Paused"){
-//                jTable1.setValueAt("Unpaused", jTable1.getSelectedRow(),2);
-//            }
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(this, "Select an entry to be removed");
-//        }
+        passwordDetails passworddetails = new passwordDetails(this, "Unpaused");
+        int index = jTable1.getSelectedRow();
+        if (index >= 0) {
+            if(jTable1.getModel().getValueAt(index, 2)=="Unpaused"){
+                JOptionPane.showMessageDialog(jTable1, "The entry is already Unpaused", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+            passworddetails.setVisible(true);
+            passworddetails.submitBtn.addActionListener(e -> {
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                passworddetails.submitBtnActionPerformed(e, index, model, "Unpaused");
+            });
+            }
+        } else {
+            JOptionPane.showMessageDialog(jTable1, "Select a row", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
     }//GEN-LAST:event_unpauseBtnActionPerformed
 
     /**
@@ -231,7 +252,7 @@ public class Portal extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
